@@ -206,7 +206,7 @@
       </div>
       <div class="article-entry">
         
-          <p>The biggest conflict I see between business and the software development team is: </p>
+          <p>The biggest conflict I see between business and the software development team is:</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">What to Build?</span><br></pre></td></tr></table></figure>
 
 <h2 id="The-intuitive-interpretation"><a href="#The-intuitive-interpretation" class="headerlink" title="The intuitive interpretation"></a>The intuitive interpretation</h2><p>It’s only occured to me recently that I view this question differently than most people. Most people would look at this question as the same as:</p>
@@ -232,7 +232,7 @@
 </ul>
 <p>In a Spring Application for example we could consider a <code>Repository</code> a capability. But as mentioned the Capabillity should be the what we do, and the service control how all these capabilities are interacting and playing together. But back to the question interpretation, if we develop a capability, we can break up what the business is telling us into what is purely a business decision, which could be a limitation on functionality&#x2F;capability, it is usually a constraint. And then, the functionality&#x2F;capability itself. In this way, we free ourselves of the chains of business decisions, and are free to develop great capabilties, and then bake those constraints into the <code>Service</code> layer.</p>
 <p>Let’s take a <code>SpringJPARepository</code> as an example. Now the business might tell us that we are never allowed to delete a row in a datbase. Does that mean we can’t use a default interface as it has all these methods we cannot use? Ofcourse not we just don’t need to make use of that capability, it’s there if we need it, but there is no need to spend extra effort to enforce a contraint at the capabiltity level. Instead this constraint can be in the Service level, were delete is just not callable.</p>
-<p>We can also ask ourselves why there is no reusable Repository without the delete functionality? Well obviously because that is not as useful, but it’s not as useful because a constraint is baked into it. Let’s say we change things a little and have a business rule such as </p>
+<p>We can also ask ourselves why there is no reusable Repository without the delete functionality? Well obviously because that is not as useful, but it’s not as useful because a constraint is baked into it. Let’s say we change things a little and have a business rule such as</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot delete before 14 days have passed</span><br></pre></td></tr></table></figure>
 <p>If we put this constraint into our <code>Repository</code> layer, and override the delete method, this agian is a constraint going into the Repository Layer. This costraint should go into our <code>Service</code> layer as this is a business decision. That’s not to say we might develop methods in the repository Layer to help meet business requirements. But we don’t hinder a capapability and change the delete function in the repository, because as soon as we do need to delete a record with less than 14 days, say a super admin. We will need to alter our Repository again, as we baked the 14 day constraint into the delete method.</p>
 
