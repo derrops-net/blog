@@ -8,19 +8,15 @@
 
 <title>
   
-    derrops
+    Tag: software
   
 </title>
 
-<meta name="description" content="Hey will this page show somewhere">
 <meta property="og:type" content="website">
-<meta property="og:title" content="derrops">
-<meta property="og:url" content="http://example.com/derrops/index.html">
+<meta property="og:title" content="Derrops">
+<meta property="og:url" content="http://example.com/tags/software/index.html">
 <meta property="og:site_name" content="Derrops">
-<meta property="og:description" content="Hey will this page show somewhere">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-04-30T11:51:18.000Z">
-<meta property="article:modified_time" content="2024-04-30T11:51:32.918Z">
 <meta property="article:author" content="Derrick Futschik">
 <meta name="twitter:card" content="summary">
 
@@ -177,38 +173,76 @@
       
         <div style="max-width: 1000px">
       
-          <article id="page-" class="article article-type-page">
+          <h1>software</h1>
+
+
   
-    <h1 class="article-header">
-      derrops
-    </h1>
   
+    <div class="post-list">
   
 
-  <div class="article-info">
-    <span class="article-date">
-  2024-04-30
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2024/05/01/capability-base-development/index/" >
+  Capability Driven Development
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2024/05/01/capability-base-development/index/"><span class="article-date">
+  2024-05-01
 </span>
+</a>
+        
 
-    
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/archiecture/" rel="tag">archiecture</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/" rel="tag">software</a></li></ul>
+	</span>
 
-    
 
-  </div>
-  <div class="article-entry">
-    <p>Hey will this page show somewhere</p>
+      </div>
+      <div class="article-entry">
+        
+          <p>The biggest conflict I see between business and the software development team is: </p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">What to Build?</span><br></pre></td></tr></table></figure>
 
-  </div>
-  <footer class="article-footer">
-    
-  <div class="cc">
-  </div>
+<h2 id="The-intuitive-interpretation"><a href="#The-intuitive-interpretation" class="headerlink" title="The intuitive interpretation"></a>The intuitive interpretation</h2><p>It’s only occured to me recently that I view this question differently than most people. Most people would look at this question as the same as:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">What does the business need?</span><br></pre></td></tr></table></figure>
+
+<h3 id="What-should-happen"><a href="#What-should-happen" class="headerlink" title="What should happen"></a>What should happen</h3><p>Let’s build what the business is telling us to build right now. That seems to be the most intuitive way to respond to this request, and what most people do. An initial MVP product is converged on, tasks are created, and Developers start to update and create new services.</p>
+<h3 id="What-shouldn’t-happen"><a href="#What-shouldn’t-happen" class="headerlink" title="What shouldn’t happen"></a>What shouldn’t happen</h3><p>Developers should not foresake <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it">YAGNI</a>, and cater for extra requirements the business will never need. Nore should they go off and build abstract platforms and frameworks just because the given imediate business need is not an air tight fit to existing availabile opensource solutions.</p>
+<p>Afterall, as long as developers are followings some best practices, the development effort should not be hindered, and the system can be re-archiectured later if need be, which is acceptable and common place and businesses grow, teams expand etc.</p>
+<h2 id="The-un-intuitive-interpretation"><a href="#The-un-intuitive-interpretation" class="headerlink" title="The un-intuitive interpretation"></a>The un-intuitive interpretation</h2><p>The problem with <code>What does the business need?</code> is that sometimes this question is too direct, and we don’t actually know. So what happens is the business makes a <strong>business decision</strong>. It decides what it needs. But we don’t really decide what we need do we? We just inherently need them. It’s an improtant destinction between the two. What we end up deciding on is not necessarily what we need. It’s easy for a farming business to know it needs a new tractor, or a restaraunt it needs a new fridge. But it’s really hard to know what software to develop because we can’t see all the ramifications of the changes we are going to make.</p>
+<p>What about instead we changed the question of <code>What to Build?</code> to</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">What Capabilities do we need?</span><br></pre></td></tr></table></figure>
+
+<p>I did find one post about these distictions which excited me that others are thinking this way <a target="_blank" rel="noopener" href="https://www.linkedin.com/pulse/service-vs-capability-process-daniel-dekkers/">Service vs. Capability vs. Process</a> which the author gives great definitions:</p>
+<ul>
+<li><strong>Capability:</strong> is the what we do</li>
+<li><strong>Process:</strong> is the how we do it (–&gt; how a capability is executed)</li>
+<li><strong>Service:</strong> is the how we access it (–&gt; how a capability is accessed)</li>
+</ul>
+<p>As far as developers are concerned:</p>
+<ul>
+<li>Capability Does not contain business logic</li>
+<li>Service contains business logic</li>
+</ul>
+<p>In a Spring Application for example we could consider a <code>Repository</code> a capability. But as mentioned the Capabillity should be the what we do, and the service control how all these capabilities are interacting and playing together. But back to the question interpretation, if we develop a capability, we can break up what the business is telling us into what is purely a business decision, which could be a limitation on functionality&#x2F;capability, it is usually a constraint. And then, the functionality&#x2F;capability itself. In this way, we free ourselves of the chains of business decisions, and are free to develop great capabilties, and then bake those constraints into the <code>Service</code> layer.</p>
+<p>Let’s take a <code>SpringJPARepository</code> as an example. Now the business might tell us that we are never allowed to delete a row in a datbase. Does that mean we can’t use a default interface as it has all these methods we cannot use? Ofcourse not we just don’t need to make use of that capability, it’s there if we need it, but there is no need to spend extra effort to enforce a contraint at the capabiltity level. Instead this constraint can be in the Service level, were delete is just not callable.</p>
+<p>We can also ask ourselves why there is no reusable Repository without the delete functionality? Well obviously because that is not as useful, but it’s not as useful because a constraint is baked into it. Let’s say we change things a little and have a business rule such as </p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot delete before 14 days have passed</span><br></pre></td></tr></table></figure>
+<p>If we put this constraint into our <code>Repository</code> layer, and override the delete method, this agian is a constraint going into the Repository Layer. This costraint should go into our <code>Service</code> layer as this is a business decision. That’s not to say we might develop methods in the repository Layer to help meet business requirements. But we don’t hinder a capapability and change the delete function in the repository, because as soon as we do need to delete a record with less than 14 days, say a super admin. We will need to alter our Repository again, as we baked the 14 day constraint into the delete method.</p>
+
+        
+      </div>
+    </div>
+
   
-    
-
-  </footer>
-</article>
-
+    </div>
+  
 
 
 
